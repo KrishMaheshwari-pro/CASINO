@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mini Casino — Blackjack, Roulette, Slots</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>🎲 Mini Casino</h1>
+      <nav class="nav">
+        <button class="btn" data-view="home">Home</button>
+        <button class="btn" data-view="blackjack">Blackjack</button>
+        <button class="btn" data-view="roulette">Roulette</button>
+        <button class="btn" data-view="slots">Slots</button>
+      </nav>
+    </header>
+
+    <!-- Home -->
+    <section id="view-home" class="grid" style="margin-top:12px">
+      <div class="grid grid-3">
+        <div class="card">
+          <h3 style="margin:0 0 6px">Blackjack</h3>
+          <p class="muted" style="margin:0 0 8px">Hit or Stand. Dealer hits until 17.</p>
+          <button class="btn primary" data-view="blackjack">Play</button>
+        </div>
+        <div class="card">
+          <h3 style="margin:0 0 6px">Roulette</h3>
+          <p class="muted" style="margin:0 0 8px">Bet red/black, odd/even, dozen, or straight.</p>
+          <button class="btn primary" data-view="roulette">Play</button>
+        </div>
+        <div class="card">
+          <h3 style="margin:0 0 6px">Slots</h3>
+          <p class="muted" style="margin:0 0 8px">Spin and match symbols to win.</p>
+          <button class="btn primary" data-view="slots">Play</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blackjack -->
+    <section id="view-blackjack" class="grid hidden" style="margin-top:12px">
+      <h2 style="margin:0">♠ Blackjack</h2>
+      <div class="grid grid-3">
+        <div class="card">
+          <strong>Your Hand <span class="muted" id="bj-player-total"></span></strong>
+          <div class="row" id="bj-player-cards"></div>
+        </div>
+        <div class="card">
+          <strong>Dealer <span class="muted" id="bj-dealer-total"></span></strong>
+          <div class="row" id="bj-dealer-cards"></div>
+        </div>
+        <div class="card">
+          <div class="row">
+            <button class="btn" id="bj-hit">Hit</button>
+            <button class="btn" id="bj-stand">Stand</button>
+            <button class="btn" id="bj-new">New Round</button>
+          </div>
+          <p class="muted" id="bj-msg" style="margin:10px 0 0"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Roulette -->
+    <section id="view-roulette" class="grid hidden" style="margin-top:12px">
+      <h2 style="margin:0">⚪ Roulette (European)</h2>
+      <div class="row">
+        <div class="card">
+          <div>Bankroll: <span style="color:var(--accent2)" id="ru-bank">₹100</span></div>
+          <div class="row" style="margin-top:8px">
+            <label>Bet:</label>
+            <input type="number" id="ru-amt" value="5" min="1" />
+          </div>
+        </div>
+        <div class="card" style="flex:1">
+          <div style="font-weight:600; margin-bottom:6px">Your Bet</div>
+          <div class="row" style="flex-wrap:wrap">
+            <button class="btn" data-ru-bet="color:red">Red</button>
+            <button class="btn" data-ru-bet="color:black">Black</button>
+            <button class="btn" data-ru-bet="parity:odd">Odd</button>
+            <button class="btn" data-ru-bet="parity:even">Even</button>
+            <button class="btn" data-ru-bet="dozen:1">1–12</button>
+            <button class="btn" data-ru-bet="dozen:2">13–24</button>
+            <button class="btn" data-ru-bet="dozen:3">25–36</button>
+            <button class="btn" data-ru-bet="straight:17">Straight 17</button>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <button class="btn primary" id="ru-spin">Spin</button>
+        <span class="muted" id="ru-result"></span>
+      </div>
+      <p class="muted" id="ru-msg"></p>
+    </section>
+
+    <!-- Slots -->
+    <section id="view-slots" class="grid hidden" style="margin-top:12px">
+      <h2 style="margin:0">🎰 Slots</h2>
+      <div class="row">
+        <div class="grid grid-3" id="sl-reels">
+          <div class="reel" id="sl-r1">🍒</div>
+          <div class="reel" id="sl-r2">🍋</div>
+          <div class="reel" id="sl-r3">🍇</div>
+        </div>
+        <div class="card">
+          <div>Bankroll: <span style="color:var(--accent2)" id="sl-bank">₹100</span></div>
+          <div class="row" style="margin-top:8px">
+            <label>Bet:</label>
+            <input type="number" id="sl-bet" value="5" min="1" />
+          </div>
+          <button class="btn primary" style="margin-top:8px" id="sl-spin">Spin</button>
+        </div>
+      </div>
+      <p id="sl-msg" class="muted" style="margin:6px 0 0"></p>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
