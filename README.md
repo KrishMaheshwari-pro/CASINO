@@ -1,5 +1,7 @@
 # 🎲 Mini Casino Suite
 
+https://krishmaheshwari-pro.github.io/CASINO/
+
 > *"Driven by gambling passion and tech enthusiasm, I built the games I love to play."*
 
 ## The Story Behind This Project
